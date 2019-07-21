@@ -1,6 +1,5 @@
 import sys
 import os
-import shutil
 import csv
 import argparse
 from sourmash import sourmash_args
@@ -19,41 +18,23 @@ def main():
     import scipy.cluster.hierarchy as sch
     parser = argparse.ArgumentParser()
     parser.add_argument('--cut-point', type=float, default=0.1)
-    parser.add_argument('--first', nargs='+', action='append')
-    parser.add_argument('--second', nargs='+', action='append')
+    parser.add_argument('sigs', nargs='+')
     parser.add_argument('--scaled', default=0, type=int)
     parser.add_argument('-q', '--quiet', action='store_true',
                    help='suppress non-error output')
     parser.add_argument('-d', '--debug', action='store_true',
                    help='output debugging output')
     parser.add_argument('--prefix', help='prefix for output files',
-                        default='sourmash.coclust')
-    parser.add_argument('--threshold', type=float, default=0,
-                        help='minimum threshold in bp for similarity')
+                        default='sourmash.clust')
     sourmash_args.add_ksize_arg(parser, sourmash_args.DEFAULT_LOAD_K)
     sourmash_args.add_moltype_args(parser)
     args = parser.parse_args()
 
-    if not (args.first and args.second):
-        error('Error! must specify --first and --second list of sigs to co-cluster!')
-        sys.exit(-1)
-
     set_quiet(args.quiet, args.debug)
 
-    # flatten --first and --second
-    args.first = [item for sublist in args.first for item in sublist]
-    args.second = [item for sublist in args.second for item in sublist]
-
-    # have to have two calls as python < 3.5 can only have one expanded list
-    if not check_files_exist(*args.first):
+    if not check_files_exist(*args.sigs):
         sys.exit(-1)
 
-    if not check_files_exist(*args.second):
-        sys.exit(-1)
-
-    notify('first list contains {} files; second list contains {} files.',
-           len(args.first), len(args.second))
-    
     moltype = sourmash_args.calculate_moltype(args)
 
     # track ksizes, moltypes and error out early if we're not sure
@@ -61,14 +42,14 @@ def main():
     ksizes = set()
     moltypes = set()
 
-    first_sigs = []
-    for n, filename in enumerate(args.first):
-        notify('... loading file {} of {} for first list', n + 1,
-               len(args.first), end='\r')
+    sigs = []
+    for n, filename in enumerate(args.sigs):
+        notify(u'\r\033[K', end=u'')
+        notify('... loading file {} of {}', n + 1, len(args.sigs), end='\r')
         loaded = sig.load_signatures(filename, ksize=args.ksize,
                                      select_moltype=moltype)
         loaded = list(loaded)
-        first_sigs += [ (x, filename) for x in loaded ]
+        sigs += [ (x, filename) for x in loaded ]
 
         # track ksizes/moltypes
         for xs in loaded:
@@ -77,28 +58,7 @@ def main():
 
         # error out while loading if we have more than one ksize/moltype
         if len(ksizes) > 1 or len(moltypes) > 1: break
-    notify('loaded {} files & {} signatures for first list', n + 1,
-           len(first_sigs))
-
-    second_sigs = []
-    for n, filename in enumerate(args.second):
-        notify('... loading file {} of {} for second list', n + 1,
-               len(args.second), end='\r')
-        
-        loaded = sig.load_signatures(filename, ksize=args.ksize,
-                                     select_moltype=moltype)
-        second_sigs += [ (x, filename) for x in loaded ]
-
-        # track ksizes/moltypes
-        for xs in loaded:
-            ksizes.add(xs.minhash.ksize)
-            moltypes.add(sourmash_args.get_moltype(xs))
-
-        # error out while loading if we have more than one ksize/moltype
-        if len(ksizes) > 1 or len(moltypes) > 1:
-            break
-    notify('loaded {} files & {} signatures for second list', n + 1,
-           len(second_sigs))
+    print('')
 
     # error exit?
     if len(ksizes) > 1 or len(moltypes) > 1:
@@ -107,7 +67,7 @@ def main():
         error("too many ksizes or molecule types, exiting.")
         sys.exit(-1)
 
-    siglist = [ x for (x, _) in first_sigs + second_sigs ]
+    siglist = [ x for (x, _) in sigs ]
 
     notify('ksize: {} / moltype: {}', ksizes.pop(), moltypes.pop())
     
@@ -127,7 +87,7 @@ def main():
         max_scaled = max(s.minhash.scaled for s in siglist)
         if args.scaled:
             max_scaled = args.scaled
-
+            
         notify('downsampling to scaled value of {}'.format(max_scaled))
         for s in siglist:
             s.minhash = s.minhash.downsample_scaled(max_scaled)
@@ -136,38 +96,7 @@ def main():
         error('cannot specify --scaled with non-scaled signatures.')
         sys.exit(-1)
 
-    # if scaled, try filter
-    if is_scaled and args.threshold:
-        args.threshold = int(args.threshold)
-        notify('filtering for at least {} shared k-mers between collections.',
-               args.threshold)
-        first_mins = set()
-        for xs, _ in first_sigs:
-            first_mins.update(xs.minhash.get_mins())
-
-        second_mins = set()
-        for xs, _ in second_sigs:
-            second_mins.update(xs.minhash.get_mins())
-
-        in_both = first_mins.intersection(second_mins)
-        threshold = args.threshold / max_scaled
-
-        # now filter
-        def has_enough(xs):
-            if len(in_both.intersection(xs.minhash.get_mins())) >= threshold:
-                return 1
-            return 0
-
-        first_sigs = [ (a, b) for (a, b) in first_sigs if has_enough(a) ]
-        second_sigs = [ (a, b) for (a, b) in second_sigs if has_enough(a) ]
-
-        siglist = [ x for (x, _) in first_sigs + second_sigs ]
-
-    notify('first list contains {} signatures; second list contains {} signatures.',
-           len(args.first), len(args.second))
-
-
-    notify("... comparing {} signatures, all by all.", len(siglist))
+    notify("... comparing {} signatures, all by all", len(siglist))
     
     # build the distance matrix
     D = numpy.zeros([len(siglist), len(siglist)])
@@ -184,13 +113,14 @@ def main():
 
             if count % 250 == 0:
                 pcnt = count / total_count * 100.0
+                notify(u'\r\033[K', end=u'')
                 notify('... comparing {} of {} ({:.0f}%)', count, total_count,
                        pcnt, end='\r')
 
             similarity = E.similarity(E2)
             D[i][j] = similarity
             D[j][i] = similarity
-    notify('completed a total of {} comparisons.', total_count)
+    print('')
 
     if len(siglist) < 30:
         for i, E in enumerate(siglist):
@@ -205,20 +135,10 @@ def main():
     dendrogram_out = args.prefix + '.dendro.pdf'
     labeltext = []
     labels_to_sigs = {}
-    labels_to_first = {}
-    labels_to_second = {}
-    len_first_sigs = len(first_sigs)
-    for i in range(len(first_sigs)):
-        label = 'A.{}'.format(str(i))
+    for i in range(len(sigs)):
+        label = '{}'.format(str(i))
         idx = i
-        labels_to_sigs[label] = first_sigs[i]
-        labels_to_first[label] = idx
-        labeltext.append(label)
-    for i in range(len_first_sigs, len(siglist)):
-        label = 'B.{}'.format(str(i))
-        idx = i - len_first_sigs
-        labels_to_sigs[label] = second_sigs[i - len_first_sigs]
-        labels_to_second[label] = idx
+        labels_to_sigs[label] = sigs[i]
         labeltext.append(label)
 
     def augmented_dendrogram(*args, **kwargs):
@@ -244,7 +164,7 @@ def main():
     Y = sch.linkage(D, method='single')
     Z = augmented_dendrogram(Y, orientation='top', no_labels=True)
     fig.savefig(dendrogram_out)
-    notify('** wrote coclust dendrogram to {}', dendrogram_out)
+    notify('** wrote clust dendrogram to {}', dendrogram_out)
 
     CUT_POINT=args.cut_point
 
@@ -264,32 +184,22 @@ def main():
         cluster_id = cluster_ids[k]
         clusters[cluster_id].add(new_labels[i])
 
-    # sort by cluster size
-    cluster_sizes = [ (len(clusters[i]), i) for i in clusters ]
-    cluster_sizes.sort(reverse=True)
-
-    for _, i in cluster_sizes:
-        print_results('cluster {} is {} in size', i, len(clusters[i]))
+    for i in clusters:
+        print('cluster {} is {} in size'.format(i, len(clusters[i])))
         for x in clusters[i]:
             (xs, sigfile) = labels_to_sigs[x]
-            print_results('\t{}', xs.name())
+            print('\t', xs.name())
 
-    # output a CSV summary
-    output_headers = ("cluster_id", "cluster_size", "origin", "filename", "name")
+    output_headers = ("cluster_id", "cluster_size", "filename", "name")
     output_rows = []
-    for _, i in cluster_sizes:
+    for i in clusters:
         cluster_size = len(clusters[i])
         for x in clusters[i]:
             xs, sigfile = labels_to_sigs[x]
 
-            origin = None
-            if x in labels_to_first:
-                origin = "first"
-            elif x in labels_to_second:
-                origin = "second"
-            assert origin
-            row = (i, cluster_size, origin, sigfile, xs.name())
+            row = (i, cluster_size, sigfile, xs.name())
             output_rows.append(row)
+            
 
     csvfile = args.prefix + '.csv'
     with open(csvfile, 'wt') as fp:
@@ -297,36 +207,30 @@ def main():
         w.writerow(output_headers)
         for row in output_rows:
             w.writerow(row)
-    notify('** wrote coclust assignments spreadsheet to {}', csvfile)
+    notify('** wrote clust assignments spreadsheet to {}', csvfile)
 
-    # output clusters with more than one signature into a directory
-    for _, i in cluster_sizes:
+    # output clusters with more than one signature
+    for i in clusters:
         if len(clusters[i]) == 1:
             continue
 
         cluster_dir = "{}.clust{}".format(args.prefix, i)
-        try:
-            shutil.rmtree(cluster_dir)
-        except FileNotFoundError:
-            pass
         os.mkdir(cluster_dir)
 
         for n, x in enumerate(clusters[i]):
-            with open('{}/{}.sig'.format(cluster_dir, x), 'wt') as fp:
+            with open('{}/{}.sig'.format(cluster_dir, n), 'wt') as fp:
                 xs, sigfile = labels_to_sigs[x]
                 sig.save_signatures([ xs ], fp)
-    notify('** saved clusters to {}.clust*', args.prefix)
 
-    # output singleton signatures to .sig files
-    for _, i in cluster_sizes:
+    # output singletons
+    for i in clusters:
         if len(clusters[i]) == 1:
-            x, = clusters[i]
             output_name = '{}.singleton{}.sig'.format(args.prefix, i)
 
+            x, = clusters[i]
             with open(output_name, 'wt') as fp:
                 xs, sigfile = labels_to_sigs[x]
                 sig.save_signatures([ xs ], fp)
-    notify('** saved singletons to {}.singleton*.sig', args.prefix)
 
 
 if __name__ == '__main__':
