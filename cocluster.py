@@ -194,7 +194,7 @@ def main():
                 new_second_sigs.append((xs, filename))
             else:
                 leftover_second_sigs.append((xs, filename))
-        second_sigs = new_second_Sigs
+        second_sigs = new_second_sigs
 
         siglist = [ x for (x, _) in first_sigs + second_sigs ]
 
@@ -307,7 +307,7 @@ def main():
     for xs, filename in leftover_first_sigs:
         label = 'A.{}'.format(str(A_label))
         clusters[cluster_id] = set([label])
-        labels_to_sigs[label] = xs
+        labels_to_sigs[label] = (xs, filename)
         labels_to_first[label] = A_label
         cluster_id += 1
         A_label += 1
@@ -316,7 +316,7 @@ def main():
     for xs, filename in leftover_second_sigs:
         label = 'B.{}'.format(str(B_label))
         clusters[cluster_id] = set([label])
-        labels_to_sigs[label] = xs
+        labels_to_sigs[label] = (xs, filename)
         labels_to_second[label] = B_label
         cluster_id += 1
         B_label += 1
