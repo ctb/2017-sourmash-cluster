@@ -388,6 +388,56 @@ def main():
                 sig.save_signatures([ xs ], fp)
     notify('** saved singletons to {}.singleton*.sig', args.prefix)
 
+    # some summary status...
+    n_pairs = 0
+    n_singletons_A = 0
+    n_singletons_B = 0
+    n_pure_A = 0
+    n_pure_B = 0
+    n_multi_impure = 0
+
+    for i in range(len(clusters)):
+        cluster = clusters[i]
+        cluster_size = len(cluster)
+        origins = set()
+
+        for x in cluster:
+            xs, sigfile = labels_to_sigs[x]
+
+            origin = None
+            if x in labels_to_first:
+                origin = "first"
+            elif x in labels_to_second:
+                origin = "second"
+            assert origin
+            origins.add(origin)
+
+        if cluster_size == 1:
+            if origin == 'first':
+                n_singletons_A += 1
+            elif origin == 'second':
+                n_singletons_B += 1
+        elif cluster_size == 2 and len(origins) == 2:
+            n_pairs += 1
+        elif len(origins) == 1:
+            if origin == 'first':
+                n_pure_A += 1
+            elif origin == 'second':
+                n_pure_B += 1
+        else:
+            n_multi_impure += 1
+
+    print_results('total clusters: {}', len(clusters))
+    print_results('num 1:1 pairs: {}', n_pairs)
+    print_results('num singletons in first: {}', n_singletons_A)
+    print_results('num singletons in second: {}', n_singletons_B)
+    print_results('num multi-sig clusters w/only first: {}', n_pure_A)
+    print_results('num multi-sig clusters w/only second: {}', n_pure_B)
+    print_results('num multi-sig clusters mixed: {}', n_multi_impure)
+
+    assert n_pairs + n_singletons_A + n_singletons_B + \
+        n_pure_A + n_pure_B + n_multi_impure == len(clusters)
+
 
 if __name__ == '__main__':
     sys.exit(main())
