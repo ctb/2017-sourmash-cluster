@@ -10,6 +10,22 @@ from sourmash.sourmash_args import SourmashArgumentParser
 from sourmash import signature as sig
 import collections
 
+import sys
+sys.setrecursionlimit(10000)
+
+
+def renumber_clusters_by_size(clusters):
+    # sort by cluster size
+    cluster_sizes = [ (len(clusters[i]), i) for i in clusters ]
+    cluster_sizes.sort(reverse=True)
+
+    # build new clusters
+    new_clusters = {}
+    for new_cluster_id, old_cluster_id in enumerate(clusters):
+        new_clusters[new_cluster_id] = clusters[old_cluster_id]
+
+    return new_clusters
+
 
 def main():
     import numpy
@@ -136,7 +152,11 @@ def main():
         error('cannot specify --scaled with non-scaled signatures.')
         sys.exit(-1)
 
+    ### done loading!
+
     # if scaled, try filter
+    leftover_first_sigs = []
+    leftover_second_sigs = []
     if is_scaled and args.threshold:
         args.threshold = int(args.threshold)
         notify('filtering for at least {} shared k-mers between collections.',
@@ -158,8 +178,23 @@ def main():
                 return 1
             return 0
 
-        first_sigs = [ (a, b) for (a, b) in first_sigs if has_enough(a) ]
-        second_sigs = [ (a, b) for (a, b) in second_sigs if has_enough(a) ]
+        new_first_sigs = []
+        leftover_first_sigs = []
+        for xs, filename in first_sigs:
+            if has_enough(xs):
+                new_first_sigs.append((xs, filename))
+            else:
+                leftover_first_sigs.append((xs, filename))
+        first_sigs = new_first_sigs
+
+        new_second_sigs = []
+        leftover_second_sigs = []
+        for xs, filename in second_sigs:
+            if has_enough(xs):
+                new_second_sigs.append((xs, filename))
+            else:
+                leftover_second_sigs.append((xs, filename))
+        second_sigs = new_second_Sigs
 
         siglist = [ x for (x, _) in first_sigs + second_sigs ]
 
@@ -208,12 +243,12 @@ def main():
     labels_to_first = {}
     labels_to_second = {}
     len_first_sigs = len(first_sigs)
-    for i in range(len(first_sigs)):
-        label = 'A.{}'.format(str(i))
-        idx = i
-        labels_to_sigs[label] = first_sigs[i]
+    for idx in range(len(first_sigs)):
+        label = 'A.{}'.format(str(idx))
+        labels_to_sigs[label] = first_sigs[idx]
         labels_to_first[label] = idx
         labeltext.append(label)
+
     for i in range(len_first_sigs, len(siglist)):
         label = 'B.{}'.format(str(i))
         idx = i - len_first_sigs
@@ -257,29 +292,52 @@ def main():
     idx1 = Z['leaves']
     new_labels = Z['ivl']
 
-    # build clusters => sets of hashes.        
+    # build clusters => sets of samples
     clusters = collections.defaultdict(set)
 
     for i, k in enumerate(idx1):
         cluster_id = cluster_ids[k]
         clusters[cluster_id].add(new_labels[i])
 
-    # sort by cluster size
-    cluster_sizes = [ (len(clusters[i]), i) for i in clusters ]
-    cluster_sizes.sort(reverse=True)
+    clusters = renumber_clusters_by_size(clusters)
 
-    for _, i in cluster_sizes:
-        print_results('cluster {} is {} in size', i, len(clusters[i]))
-        for x in clusters[i]:
+    # add filtered out signatures, too; all have cluster size of 1.
+    cluster_id = len(clusters)
+    A_label = len(first_sigs)
+    for xs, filename in leftover_first_sigs:
+        label = 'A.{}'.format(str(A_label))
+        clusters[cluster_id] = set([label])
+        labels_to_sigs[label] = xs
+        labels_to_first[label] = A_label
+        cluster_id += 1
+        A_label += 1
+
+    B_label = len(second_sigs)
+    for xs, filename in leftover_second_sigs:
+        label = 'B.{}'.format(str(B_label))
+        clusters[cluster_id] = set([label])
+        labels_to_sigs[label] = xs
+        labels_to_second[label] = B_label
+        cluster_id += 1
+        B_label += 1
+
+    for i in range(len(clusters)):
+        cluster = clusters[i]
+        if len(cluster) == 1:
+            continue
+
+        print_results('cluster {} is {} in size', i, len(cluster))
+        for x in cluster:
             (xs, sigfile) = labels_to_sigs[x]
             print_results('\t{}', xs.name())
 
     # output a CSV summary
     output_headers = ("cluster_id", "cluster_size", "origin", "filename", "name")
     output_rows = []
-    for _, i in cluster_sizes:
-        cluster_size = len(clusters[i])
-        for x in clusters[i]:
+    for i in range(len(clusters)):
+        cluster = clusters[i]
+        cluster_size = len(cluster)
+        for x in cluster:
             xs, sigfile = labels_to_sigs[x]
 
             origin = None
@@ -300,8 +358,9 @@ def main():
     notify('** wrote coclust assignments spreadsheet to {}', csvfile)
 
     # output clusters with more than one signature into a directory
-    for _, i in cluster_sizes:
-        if len(clusters[i]) == 1:
+    for i in range(len(clusters)):
+        cluster = clusters[i]
+        if len(cluster) == 1:
             continue
 
         cluster_dir = "{}.clust{}".format(args.prefix, i)
@@ -311,17 +370,18 @@ def main():
             pass
         os.mkdir(cluster_dir)
 
-        for n, x in enumerate(clusters[i]):
+        for n, x in enumerate(cluster):
             with open('{}/{}.sig'.format(cluster_dir, x), 'wt') as fp:
                 xs, sigfile = labels_to_sigs[x]
                 sig.save_signatures([ xs ], fp)
     notify('** saved clusters to {}.clust*', args.prefix)
 
     # output singleton signatures to .sig files
-    for _, i in cluster_sizes:
-        if len(clusters[i]) == 1:
-            x, = clusters[i]
+    for i in range(len(clusters)):
+        cluster = clusters[i]
+        if len(cluster) == 1:
             output_name = '{}.singleton{}.sig'.format(args.prefix, i)
+            x, = cluster
 
             with open(output_name, 'wt') as fp:
                 xs, sigfile = labels_to_sigs[x]
