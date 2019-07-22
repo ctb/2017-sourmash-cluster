@@ -21,7 +21,7 @@ def renumber_clusters_by_size(clusters):
 
     # build new clusters
     new_clusters = {}
-    for new_cluster_id, old_cluster_id in enumerate(clusters):
+    for new_cluster_id, (_, old_cluster_id) in enumerate(cluster_sizes):
         new_clusters[new_cluster_id] = clusters[old_cluster_id]
 
     return new_clusters
