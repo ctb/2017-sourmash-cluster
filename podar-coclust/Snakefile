@@ -3,7 +3,21 @@ podar_ref_signatures = [ x + '.sig' for x in podar_ref_genomes ]
 
 rule all:
     input:
+        "podar.cmp.matrix.png",
         "podar.coclust.csv"
+
+rule clean:
+    shell:
+        "rm -fr podar-ref podar.cmp* podar.coclust.*
+
+rule compare_and_plot:
+    input:
+        podar_ref_signatures
+    output:
+        "podar.cmp",
+        "podar.cmp.matrix.png"
+    shell:
+        "sourmash compare {input} -o podar.cmp && sourmash plot podar.cmp"
 
 rule coclust:
     input:
