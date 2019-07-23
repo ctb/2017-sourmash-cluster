@@ -1,0 +1,32 @@
+podar_ref_genomes = expand("podar-ref/{num}.fa", num=range(0, 64))
+podar_ref_signatures = [ x + '.sig' for x in podar_ref_genomes ]
+
+rule all:
+    input:
+        "podar.coclust.csv"
+
+rule coclust:
+    input:
+        podar_ref_signatures
+    output:
+        "podar.coclust.csv",
+        "podar.coclust.txt",
+        "podar.coclust.dendro.pdf"
+    shell:
+        "../cocluster.py --first podar-ref/*.fa.sig --second podar-ref/*.fa.sig -k 31 --cut-point=1.0 --prefix=podar.coclust > podar.coclust.txt"
+
+rule download_podar_ref_genomes:
+    output:
+        podar_ref_genomes
+    shell:
+        """mkdir -p podar-ref && cd podar-ref && \
+             (curl -L https://osf.io/8uxj9/?action=download | tar xzf -)"""
+
+# generic rule: compute signature
+rule compute_sig:
+    input:
+        "{filename}"
+    output:
+        "{filename}.sig"
+    shell:
+        "sourmash compute -k 31 --scaled=10000 {input} -o {output}"

@@ -1,196 +1,196 @@
 min similarity in matrix: 0.000
 cluster 0 is 2 in size
-	CP000568.1 Clostridium thermocellum ATCC 27405, complete genome
-	CP000568.1 Clostridium thermocellum ATCC 27405, complete genome
+	podar-ref/1.fa
+	podar-ref/1.fa
 cluster 1 is 2 in size
-	CP001941.1 Aciduliprofundum boonei T469, complete genome
-	CP001941.1 Aciduliprofundum boonei T469, complete genome
+	podar-ref/0.fa
+	podar-ref/0.fa
 cluster 2 is 2 in size
-	CP001251.1 Dictyoglomus turgidum DSM 6724, complete genome
-	CP001251.1 Dictyoglomus turgidum DSM 6724, complete genome
+	podar-ref/14.fa
+	podar-ref/14.fa
 cluster 3 is 2 in size
-	CP001071.1 Akkermansia muciniphila ATCC BAA-835, complete genome
-	CP001071.1 Akkermansia muciniphila ATCC BAA-835, complete genome
+	podar-ref/15.fa
+	podar-ref/15.fa
 cluster 4 is 2 in size
-	NC_013968.1 Haloferax volcanii DS2 plasmid pHV1, complete sequence
-	NC_013968.1 Haloferax volcanii DS2 plasmid pHV1, complete sequence
+	podar-ref/16.fa
+	podar-ref/16.fa
 cluster 5 is 2 in size
-	CP000816.1 Ignicoccus hospitalis KIN4/I, complete genome
-	CP000816.1 Ignicoccus hospitalis KIN4/I, complete genome
+	podar-ref/18.fa
+	podar-ref/18.fa
 cluster 6 is 2 in size
-	AE000782.1 Archaeoglobus fulgidus DSM 4304, complete genome
-	AE000782.1 Archaeoglobus fulgidus DSM 4304, complete genome
+	podar-ref/19.fa
+	podar-ref/19.fa
 cluster 7 is 2 in size
-	AE010299.1 Methanosarcina acetivorans str. C2A, complete genome
-	AE010299.1 Methanosarcina acetivorans str. C2A, complete genome
+	podar-ref/2.fa
+	podar-ref/2.fa
 cluster 8 is 2 in size
-	NC_005213.1 Nanoarchaeum equitans Kin4-M chromosome, complete genome
-	NC_005213.1 Nanoarchaeum equitans Kin4-M chromosome, complete genome
+	podar-ref/23.fa
+	podar-ref/23.fa
 cluster 9 is 2 in size
-	BX119912.1 Rhodopirellula baltica SH 1 complete genome
-	BX119912.1 Rhodopirellula baltica SH 1 complete genome
+	podar-ref/24.fa
+	podar-ref/24.fa
 cluster 10 is 2 in size
-	CP000924.1 Thermoanaerobacter pseudethanolicus ATCC 33223, complete genome
-	CP000924.1 Thermoanaerobacter pseudethanolicus ATCC 33223, complete genome
+	podar-ref/25.fa
+	podar-ref/25.fa
 cluster 11 is 2 in size
-	BX571656.1 Wolinella succinogenes DSM 1740, complete genome
-	BX571656.1 Wolinella succinogenes DSM 1740, complete genome
+	podar-ref/26.fa
+	podar-ref/26.fa
 cluster 12 is 2 in size
-	BA000023.2 Sulfolobus tokodaii str. 7 DNA, complete genome
-	BA000023.2 Sulfolobus tokodaii str. 7 DNA, complete genome
+	podar-ref/28.fa
+	podar-ref/28.fa
 cluster 13 is 2 in size
-	NZ_JGWU01000001.1 Bordetella bronchiseptica D989 ctg7180000008197, whole genome shotgun sequence
-	NZ_JGWU01000001.1 Bordetella bronchiseptica D989 ctg7180000008197, whole genome shotgun sequence
+	podar-ref/3.fa
+	podar-ref/3.fa
 cluster 14 is 2 in size
-	CP001013.1 Leptothrix cholodnii SP-6, complete genome
-	CP001013.1 Leptothrix cholodnii SP-6, complete genome
+	podar-ref/31.fa
+	podar-ref/31.fa
 cluster 15 is 2 in size
-	NC_007951.1 Burkholderia xenovorans LB400 chromosome 1, complete sequence
-	NC_007951.1 Burkholderia xenovorans LB400 chromosome 1, complete sequence
+	podar-ref/32.fa
+	podar-ref/32.fa
 cluster 16 is 2 in size
-	NZ_CP015081.1 Deinococcus radiodurans R1 chromosome 1, complete sequence
-	NZ_CP015081.1 Deinococcus radiodurans R1 chromosome 1, complete sequence
+	podar-ref/33.fa
+	podar-ref/33.fa
 cluster 17 is 2 in size
-	NC_003911.12 Ruegeria pomeroyi DSS-3, complete genome
-	NC_003911.12 Ruegeria pomeroyi DSS-3, complete genome
+	podar-ref/34.fa
+	podar-ref/34.fa
 cluster 18 is 2 in size
-	CP000909.1 Chloroflexus aurantiacus J-10-fl, complete genome
-	CP000909.1 Chloroflexus aurantiacus J-10-fl, complete genome
+	podar-ref/37.fa
+	podar-ref/37.fa
 cluster 19 is 2 in size
-	NC_009972.1 Herpetosiphon aurantiacus DSM 785, complete genome
-	NC_009972.1 Herpetosiphon aurantiacus DSM 785, complete genome
+	podar-ref/38.fa
+	podar-ref/38.fa
 cluster 20 is 2 in size
-	AP009153.1 Gemmatimonas aurantiaca T-27 DNA, complete genome
-	AP009153.1 Gemmatimonas aurantiaca T-27 DNA, complete genome
+	podar-ref/39.fa
+	podar-ref/39.fa
 cluster 21 is 2 in size
-	CP001472.1 Acidobacterium capsulatum ATCC 51196, complete genome
-	CP001472.1 Acidobacterium capsulatum ATCC 51196, complete genome
+	podar-ref/40.fa
+	podar-ref/40.fa
 cluster 22 is 2 in size
-	CP000492.1 Chlorobium phaeobacteroides DSM 266, complete genome
-	CP000492.1 Chlorobium phaeobacteroides DSM 266, complete genome
+	podar-ref/41.fa
+	podar-ref/41.fa
 cluster 23 is 2 in size
-	CP001097.1 Chlorobium limicola DSM 245, complete genome
-	CP001097.1 Chlorobium limicola DSM 245, complete genome
+	podar-ref/42.fa
+	podar-ref/42.fa
 cluster 24 is 2 in size
-	CP001110.1 Pelodictyon phaeoclathratiforme BU-1, complete genome
-	CP001110.1 Pelodictyon phaeoclathratiforme BU-1, complete genome
+	podar-ref/43.fa
+	podar-ref/43.fa
 cluster 25 is 2 in size
-	CP000607.1 Chlorobium phaeovibrioides DSM 265, complete genome
-	CP000607.1 Chlorobium phaeovibrioides DSM 265, complete genome
+	podar-ref/50.fa
+	podar-ref/50.fa
 cluster 26 is 2 in size
-	AE006470.1 Chlorobium tepidum TLS, complete genome
-	AE006470.1 Chlorobium tepidum TLS, complete genome
+	podar-ref/54.fa
+	podar-ref/54.fa
 cluster 27 is 2 in size
-	NZ_KQ961402.1 Zymomonas mobilis strain ATCC 31823 Scaffold1, whole genome shotgun sequence
-	NZ_KQ961402.1 Zymomonas mobilis strain ATCC 31823 Scaffold1, whole genome shotgun sequence
+	podar-ref/56.fa
+	podar-ref/56.fa
 cluster 28 is 2 in size
-	AE009951.2 Fusobacterium nucleatum subsp. nucleatum ATCC 25586, complete genome
-	AE009951.2 Fusobacterium nucleatum subsp. nucleatum ATCC 25586, complete genome
+	podar-ref/57.fa
+	podar-ref/57.fa
 cluster 29 is 2 in size
-	AL954747.1 Nitrosomonas europaea ATCC 19718, complete genome
-	AL954747.1 Nitrosomonas europaea ATCC 19718, complete genome
+	podar-ref/62.fa
+	podar-ref/62.fa
 cluster 30 is 2 in size
-	NZ_KE136524.1 Enterococcus faecalis V583 acyDH-supercont2.1, whole genome shotgun sequence
-	NZ_KE136524.1 Enterococcus faecalis V583 acyDH-supercont2.1, whole genome shotgun sequence
+	podar-ref/44.fa
+	podar-ref/44.fa
 cluster 31 is 2 in size
-	NC_003272.1 Nostoc sp. PCC 7120 DNA, complete genome
-	NC_003272.1 Nostoc sp. PCC 7120 DNA, complete genome
+	podar-ref/27.fa
+	podar-ref/27.fa
 cluster 32 is 2 in size
-	AE017226.1 Treponema denticola ATCC 35405, complete genome
-	AE017226.1 Treponema denticola ATCC 35405, complete genome
+	podar-ref/6.fa
+	podar-ref/6.fa
 cluster 33 is 2 in size
-	AE017221.1 Thermus thermophilus HB27, complete genome
-	AE017221.1 Thermus thermophilus HB27, complete genome
+	podar-ref/7.fa
+	podar-ref/7.fa
 cluster 34 is 2 in size
-	NZ_DS996397.1 Desulfovibrio piger ATCC 29098 Scfld442, whole genome shotgun sequence
-	NZ_DS996397.1 Desulfovibrio piger ATCC 29098 Scfld442, whole genome shotgun sequence
+	podar-ref/21.fa
+	podar-ref/21.fa
 cluster 35 is 2 in size
-	NC_008751.1 Desulfovibrio vulgaris DP4, complete genome
-	NC_008751.1 Desulfovibrio vulgaris DP4, complete genome
+	podar-ref/20.fa
+	podar-ref/20.fa
 cluster 36 is 2 in size
-	AE017180.2 Geobacter sulfurreducens PCA, complete genome
-	AE017180.2 Geobacter sulfurreducens PCA, complete genome
+	podar-ref/58.fa
+	podar-ref/58.fa
 cluster 37 is 2 in size
-	AE009441.1 Pyrobaculum aerophilum str. IM2, complete genome
-	AE009441.1 Pyrobaculum aerophilum str. IM2, complete genome
+	podar-ref/35.fa
+	podar-ref/35.fa
 cluster 38 is 2 in size
-	CP000660.1 Pyrobaculum arsenaticum DSM 13514, complete genome
-	CP000660.1 Pyrobaculum arsenaticum DSM 13514, complete genome
+	podar-ref/61.fa
+	podar-ref/61.fa
 cluster 39 is 2 in size
-	CP000561.1 Pyrobaculum calidifontis JCM 11548, complete genome
-	CP000561.1 Pyrobaculum calidifontis JCM 11548, complete genome
+	podar-ref/17.fa
+	podar-ref/17.fa
 cluster 40 is 2 in size
-	NC_000909.1 Methanocaldococcus jannaschii DSM 2661, complete genome
-	NC_000909.1 Methanocaldococcus jannaschii DSM 2661, complete genome
+	podar-ref/55.fa
+	podar-ref/55.fa
 cluster 41 is 2 in size
-	AE009439.1 Methanopyrus kandleri AV19, complete genome
-	AE009439.1 Methanopyrus kandleri AV19, complete genome
+	podar-ref/22.fa
+	podar-ref/22.fa
 cluster 42 is 2 in size
-	CP001130.1 Hydrogenobaculum sp. Y04AAS1, complete genome
-	CP001130.1 Hydrogenobaculum sp. Y04AAS1, complete genome
+	podar-ref/5.fa
+	podar-ref/5.fa
 cluster 43 is 2 in size
-	CP001230.1 Persephonella marina EX-H1, complete genome
-	CP001230.1 Persephonella marina EX-H1, complete genome
+	podar-ref/4.fa
+	podar-ref/4.fa
 cluster 44 is 2 in size
-	AE015928.1 Bacteroides thetaiotaomicron VPI-5482, complete genome
-	AE015928.1 Bacteroides thetaiotaomicron VPI-5482, complete genome
+	podar-ref/13.fa
+	podar-ref/13.fa
 cluster 45 is 2 in size
-	CP000139.1 Bacteroides vulgatus ATCC 8482, complete genome
-	CP000139.1 Bacteroides vulgatus ATCC 8482, complete genome
+	podar-ref/12.fa
+	podar-ref/12.fa
 cluster 46 is 2 in size
-	AP009380.1 Porphyromonas gingivalis ATCC 33277 DNA, complete genome
-	AP009380.1 Porphyromonas gingivalis ATCC 33277 DNA, complete genome
+	podar-ref/11.fa
+	podar-ref/11.fa
 cluster 47 is 2 in size
-	BA000001.2 Pyrococcus horikoshii OT3 DNA, complete genome
-	BA000001.2 Pyrococcus horikoshii OT3 DNA, complete genome
+	podar-ref/36.fa
+	podar-ref/36.fa
 cluster 48 is 2 in size
-	AE009950.1 Pyrococcus furiosus DSM 3638, complete genome
-	AE009950.1 Pyrococcus furiosus DSM 3638, complete genome
+	podar-ref/10.fa
+	podar-ref/10.fa
 cluster 49 is 2 in size
-	CP000850.1 Salinispora arenicola CNS-205, complete genome
-	CP000850.1 Salinispora arenicola CNS-205, complete genome
+	podar-ref/30.fa
+	podar-ref/30.fa
 cluster 50 is 2 in size
-	CP000667.1 Salinispora tropica CNB-440, complete genome
-	CP000667.1 Salinispora tropica CNB-440, complete genome
+	podar-ref/29.fa
+	podar-ref/29.fa
 cluster 51 is 2 in size
-	CP000679.1 Caldicellulosiruptor saccharolyticus DSM 8903, complete genome
-	CP000679.1 Caldicellulosiruptor saccharolyticus DSM 8903, complete genome
+	podar-ref/46.fa
+	podar-ref/46.fa
 cluster 52 is 2 in size
-	NZ_FWDH01000003.1 Caldicellulosiruptor bescii strain MACB1021, whole genome shotgun sequence
-	NZ_FWDH01000003.1 Caldicellulosiruptor bescii strain MACB1021, whole genome shotgun sequence
+	podar-ref/45.fa
+	podar-ref/45.fa
 cluster 53 is 2 in size
-	BX950229.1 Methanococcus maripaludis strain S2, complete sequence
-	BX950229.1 Methanococcus maripaludis strain S2, complete sequence
+	podar-ref/9.fa
+	podar-ref/9.fa
 cluster 54 is 2 in size
-	CP000609.1 Methanococcus maripaludis C5, complete genome
-	CP000609.1 Methanococcus maripaludis C5, complete genome
+	podar-ref/8.fa
+	podar-ref/8.fa
 cluster 55 is 2 in size
-	CP000702.1 Thermotoga petrophila RKU-1, complete genome
-	CP000702.1 Thermotoga petrophila RKU-1, complete genome
+	podar-ref/52.fa
+	podar-ref/52.fa
 cluster 56 is 2 in size
-	CP000969.1 Thermotoga sp. RQ2, complete genome
-	CP000969.1 Thermotoga sp. RQ2, complete genome
+	podar-ref/53.fa
+	podar-ref/53.fa
 cluster 57 is 2 in size
-	CP000916.1 Thermotoga neapolitana DSM 4359, complete genome
-	CP000916.1 Thermotoga neapolitana DSM 4359, complete genome
+	podar-ref/51.fa
+	podar-ref/51.fa
 cluster 58 is 2 in size
-	NC_010730.1 Sulfurihydrogenibium sp. YO3AOP1, complete genome
-	NC_010730.1 Sulfurihydrogenibium sp. YO3AOP1, complete genome
+	podar-ref/49.fa
+	podar-ref/49.fa
 cluster 59 is 2 in size
-	NZ_ABZS01000228.1 Sulfurihydrogenibium yellowstonense SS-5 gcontig_18, whole genome shotgun sequence
-	NZ_ABZS01000228.1 Sulfurihydrogenibium yellowstonense SS-5 gcontig_18, whole genome shotgun sequence
+	podar-ref/48.fa
+	podar-ref/48.fa
 cluster 60 is 2 in size
-	NZ_CH959317.1 Sulfitobacter sp. NAS-14.1 scf_1099451320472, whole genome shotgun sequence
-	NZ_CH959317.1 Sulfitobacter sp. NAS-14.1 scf_1099451320472, whole genome shotgun sequence
+	podar-ref/60.fa
+	podar-ref/60.fa
 cluster 61 is 2 in size
-	NZ_CH959311.1 Sulfitobacter sp. EE-36 scf_1099451318005, whole genome shotgun sequence
-	NZ_CH959311.1 Sulfitobacter sp. EE-36 scf_1099451318005, whole genome shotgun sequence
+	podar-ref/59.fa
+	podar-ref/59.fa
 cluster 62 is 2 in size
-	NC_011663.1 Shewanella baltica OS223, complete genome
-	NC_011663.1 Shewanella baltica OS223, complete genome
+	podar-ref/63.fa
+	podar-ref/63.fa
 cluster 63 is 2 in size
-	NC_009665.1 Shewanella baltica OS185, complete genome
-	NC_009665.1 Shewanella baltica OS185, complete genome
+	podar-ref/47.fa
+	podar-ref/47.fa
 total clusters: 64
 num 1:1 pairs: 64
 num singletons in first: 0
