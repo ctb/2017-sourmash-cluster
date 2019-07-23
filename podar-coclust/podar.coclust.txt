@@ -1,24 +1,24 @@
 min similarity in matrix: 0.000
 cluster 0 is 4 in size
-	podar-ref/53.fa
 	podar-ref/52.fa
+	podar-ref/53.fa
 	podar-ref/52.fa
 	podar-ref/53.fa
 cluster 1 is 4 in size
-	podar-ref/49.fa
 	podar-ref/48.fa
+	podar-ref/49.fa
 	podar-ref/48.fa
 	podar-ref/49.fa
 cluster 2 is 4 in size
-	podar-ref/60.fa
+	podar-ref/59.fa
 	podar-ref/60.fa
 	podar-ref/59.fa
-	podar-ref/59.fa
+	podar-ref/60.fa
 cluster 3 is 4 in size
 	podar-ref/63.fa
-	podar-ref/47.fa
-	podar-ref/47.fa
 	podar-ref/63.fa
+	podar-ref/47.fa
+	podar-ref/47.fa
 cluster 4 is 2 in size
 	podar-ref/1.fa
 	podar-ref/1.fa

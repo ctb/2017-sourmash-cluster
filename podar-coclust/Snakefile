@@ -25,9 +25,10 @@ rule coclust:
     output:
         "podar.coclust.csv",
         "podar.coclust.txt",
+        "podar.coclust.log",
         "podar.coclust.dendro.pdf"
     shell:
-        "../cocluster.py --first podar-ref/*.fa.sig --second podar-ref/*.fa.sig -k 31 --cut-point=1.8 --prefix=podar.coclust > podar.coclust.txt"
+        "../cocluster.py --first podar-ref/*.fa.sig --second podar-ref/*.fa.sig -k 31 --cut-point=1.8 --prefix=podar.coclust > podar.coclust.txt 2> podar.coclust.log"
 
 rule download_podar_ref_genomes:
     output:
