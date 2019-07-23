@@ -1,200 +1,196 @@
 min similarity in matrix: 0.000
-cluster 0 is 2 in size
-	podar-ref/1.fa
-	podar-ref/1.fa
-cluster 1 is 2 in size
-	podar-ref/0.fa
-	podar-ref/0.fa
-cluster 2 is 2 in size
-	podar-ref/14.fa
-	podar-ref/14.fa
-cluster 3 is 2 in size
-	podar-ref/15.fa
-	podar-ref/15.fa
+cluster 0 is 4 in size
+	podar-ref/53.fa
+	podar-ref/52.fa
+	podar-ref/52.fa
+	podar-ref/53.fa
+cluster 1 is 4 in size
+	podar-ref/49.fa
+	podar-ref/48.fa
+	podar-ref/48.fa
+	podar-ref/49.fa
+cluster 2 is 4 in size
+	podar-ref/60.fa
+	podar-ref/60.fa
+	podar-ref/59.fa
+	podar-ref/59.fa
+cluster 3 is 4 in size
+	podar-ref/63.fa
+	podar-ref/47.fa
+	podar-ref/47.fa
+	podar-ref/63.fa
 cluster 4 is 2 in size
-	podar-ref/16.fa
-	podar-ref/16.fa
+	podar-ref/1.fa
+	podar-ref/1.fa
 cluster 5 is 2 in size
-	podar-ref/18.fa
-	podar-ref/18.fa
+	podar-ref/0.fa
+	podar-ref/0.fa
 cluster 6 is 2 in size
-	podar-ref/19.fa
-	podar-ref/19.fa
+	podar-ref/14.fa
+	podar-ref/14.fa
 cluster 7 is 2 in size
-	podar-ref/2.fa
-	podar-ref/2.fa
+	podar-ref/15.fa
+	podar-ref/15.fa
 cluster 8 is 2 in size
-	podar-ref/23.fa
-	podar-ref/23.fa
+	podar-ref/16.fa
+	podar-ref/16.fa
 cluster 9 is 2 in size
-	podar-ref/24.fa
-	podar-ref/24.fa
+	podar-ref/18.fa
+	podar-ref/18.fa
 cluster 10 is 2 in size
-	podar-ref/25.fa
-	podar-ref/25.fa
+	podar-ref/19.fa
+	podar-ref/19.fa
 cluster 11 is 2 in size
-	podar-ref/26.fa
-	podar-ref/26.fa
+	podar-ref/2.fa
+	podar-ref/2.fa
 cluster 12 is 2 in size
-	podar-ref/28.fa
-	podar-ref/28.fa
+	podar-ref/23.fa
+	podar-ref/23.fa
 cluster 13 is 2 in size
-	podar-ref/3.fa
-	podar-ref/3.fa
+	podar-ref/24.fa
+	podar-ref/24.fa
 cluster 14 is 2 in size
-	podar-ref/31.fa
-	podar-ref/31.fa
+	podar-ref/25.fa
+	podar-ref/25.fa
 cluster 15 is 2 in size
-	podar-ref/32.fa
-	podar-ref/32.fa
+	podar-ref/26.fa
+	podar-ref/26.fa
 cluster 16 is 2 in size
-	podar-ref/33.fa
-	podar-ref/33.fa
+	podar-ref/28.fa
+	podar-ref/28.fa
 cluster 17 is 2 in size
-	podar-ref/34.fa
-	podar-ref/34.fa
+	podar-ref/3.fa
+	podar-ref/3.fa
 cluster 18 is 2 in size
-	podar-ref/37.fa
-	podar-ref/37.fa
+	podar-ref/31.fa
+	podar-ref/31.fa
 cluster 19 is 2 in size
-	podar-ref/38.fa
-	podar-ref/38.fa
+	podar-ref/32.fa
+	podar-ref/32.fa
 cluster 20 is 2 in size
-	podar-ref/39.fa
-	podar-ref/39.fa
+	podar-ref/33.fa
+	podar-ref/33.fa
 cluster 21 is 2 in size
-	podar-ref/40.fa
-	podar-ref/40.fa
+	podar-ref/34.fa
+	podar-ref/34.fa
 cluster 22 is 2 in size
-	podar-ref/41.fa
-	podar-ref/41.fa
+	podar-ref/37.fa
+	podar-ref/37.fa
 cluster 23 is 2 in size
-	podar-ref/42.fa
-	podar-ref/42.fa
+	podar-ref/38.fa
+	podar-ref/38.fa
 cluster 24 is 2 in size
-	podar-ref/43.fa
-	podar-ref/43.fa
+	podar-ref/39.fa
+	podar-ref/39.fa
 cluster 25 is 2 in size
-	podar-ref/50.fa
-	podar-ref/50.fa
+	podar-ref/40.fa
+	podar-ref/40.fa
 cluster 26 is 2 in size
-	podar-ref/54.fa
-	podar-ref/54.fa
+	podar-ref/41.fa
+	podar-ref/41.fa
 cluster 27 is 2 in size
-	podar-ref/56.fa
-	podar-ref/56.fa
+	podar-ref/42.fa
+	podar-ref/42.fa
 cluster 28 is 2 in size
-	podar-ref/57.fa
-	podar-ref/57.fa
+	podar-ref/43.fa
+	podar-ref/43.fa
 cluster 29 is 2 in size
-	podar-ref/62.fa
-	podar-ref/62.fa
+	podar-ref/50.fa
+	podar-ref/50.fa
 cluster 30 is 2 in size
-	podar-ref/44.fa
-	podar-ref/44.fa
+	podar-ref/54.fa
+	podar-ref/54.fa
 cluster 31 is 2 in size
-	podar-ref/27.fa
-	podar-ref/27.fa
+	podar-ref/56.fa
+	podar-ref/56.fa
 cluster 32 is 2 in size
-	podar-ref/6.fa
-	podar-ref/6.fa
+	podar-ref/57.fa
+	podar-ref/57.fa
 cluster 33 is 2 in size
-	podar-ref/7.fa
-	podar-ref/7.fa
+	podar-ref/62.fa
+	podar-ref/62.fa
 cluster 34 is 2 in size
-	podar-ref/21.fa
-	podar-ref/21.fa
+	podar-ref/44.fa
+	podar-ref/44.fa
 cluster 35 is 2 in size
-	podar-ref/20.fa
-	podar-ref/20.fa
+	podar-ref/27.fa
+	podar-ref/27.fa
 cluster 36 is 2 in size
-	podar-ref/58.fa
-	podar-ref/58.fa
+	podar-ref/6.fa
+	podar-ref/6.fa
 cluster 37 is 2 in size
-	podar-ref/35.fa
-	podar-ref/35.fa
+	podar-ref/7.fa
+	podar-ref/7.fa
 cluster 38 is 2 in size
-	podar-ref/61.fa
-	podar-ref/61.fa
+	podar-ref/21.fa
+	podar-ref/21.fa
 cluster 39 is 2 in size
-	podar-ref/17.fa
-	podar-ref/17.fa
+	podar-ref/20.fa
+	podar-ref/20.fa
 cluster 40 is 2 in size
-	podar-ref/55.fa
-	podar-ref/55.fa
+	podar-ref/58.fa
+	podar-ref/58.fa
 cluster 41 is 2 in size
-	podar-ref/22.fa
-	podar-ref/22.fa
+	podar-ref/35.fa
+	podar-ref/35.fa
 cluster 42 is 2 in size
-	podar-ref/5.fa
-	podar-ref/5.fa
+	podar-ref/61.fa
+	podar-ref/61.fa
 cluster 43 is 2 in size
-	podar-ref/4.fa
-	podar-ref/4.fa
+	podar-ref/17.fa
+	podar-ref/17.fa
 cluster 44 is 2 in size
-	podar-ref/13.fa
-	podar-ref/13.fa
+	podar-ref/55.fa
+	podar-ref/55.fa
 cluster 45 is 2 in size
-	podar-ref/12.fa
-	podar-ref/12.fa
+	podar-ref/22.fa
+	podar-ref/22.fa
 cluster 46 is 2 in size
-	podar-ref/11.fa
-	podar-ref/11.fa
+	podar-ref/5.fa
+	podar-ref/5.fa
 cluster 47 is 2 in size
-	podar-ref/36.fa
-	podar-ref/36.fa
+	podar-ref/4.fa
+	podar-ref/4.fa
 cluster 48 is 2 in size
-	podar-ref/10.fa
-	podar-ref/10.fa
+	podar-ref/13.fa
+	podar-ref/13.fa
 cluster 49 is 2 in size
-	podar-ref/30.fa
-	podar-ref/30.fa
+	podar-ref/12.fa
+	podar-ref/12.fa
 cluster 50 is 2 in size
-	podar-ref/29.fa
-	podar-ref/29.fa
+	podar-ref/11.fa
+	podar-ref/11.fa
 cluster 51 is 2 in size
-	podar-ref/46.fa
-	podar-ref/46.fa
+	podar-ref/36.fa
+	podar-ref/36.fa
 cluster 52 is 2 in size
-	podar-ref/45.fa
-	podar-ref/45.fa
+	podar-ref/10.fa
+	podar-ref/10.fa
 cluster 53 is 2 in size
-	podar-ref/9.fa
-	podar-ref/9.fa
+	podar-ref/30.fa
+	podar-ref/30.fa
 cluster 54 is 2 in size
-	podar-ref/8.fa
-	podar-ref/8.fa
+	podar-ref/29.fa
+	podar-ref/29.fa
 cluster 55 is 2 in size
-	podar-ref/52.fa
-	podar-ref/52.fa
+	podar-ref/46.fa
+	podar-ref/46.fa
 cluster 56 is 2 in size
-	podar-ref/53.fa
-	podar-ref/53.fa
+	podar-ref/45.fa
+	podar-ref/45.fa
 cluster 57 is 2 in size
-	podar-ref/51.fa
-	podar-ref/51.fa
+	podar-ref/9.fa
+	podar-ref/9.fa
 cluster 58 is 2 in size
-	podar-ref/49.fa
-	podar-ref/49.fa
+	podar-ref/8.fa
+	podar-ref/8.fa
 cluster 59 is 2 in size
-	podar-ref/48.fa
-	podar-ref/48.fa
-cluster 60 is 2 in size
-	podar-ref/60.fa
-	podar-ref/60.fa
-cluster 61 is 2 in size
-	podar-ref/59.fa
-	podar-ref/59.fa
-cluster 62 is 2 in size
-	podar-ref/63.fa
-	podar-ref/63.fa
-cluster 63 is 2 in size
-	podar-ref/47.fa
-	podar-ref/47.fa
-total clusters: 64
-num 1:1 pairs: 64
+	podar-ref/51.fa
+	podar-ref/51.fa
+total clusters: 60
+num 1:1 pairs: 56
 num singletons in first: 0
 num singletons in second: 0
 num multi-sig clusters w/only first: 0
 num multi-sig clusters w/only second: 0
-num multi-sig clusters mixed: 0
+num multi-sig clusters mixed: 4

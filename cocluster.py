@@ -238,7 +238,6 @@ def main():
 
     print_results('min similarity in matrix: {:.3f}', numpy.min(D))
 
-    dendrogram_out = args.prefix + '.dendro.pdf'
     labeltext = []
     labels_to_sigs = {}
     labels_to_first = {}
@@ -273,6 +272,17 @@ def main():
 
         return ddata
 
+    dendrogram_out = args.prefix + '.dendro.pdf'
+    fig = pylab.figure(figsize=(8,5))
+    ax1 = fig.add_axes([0.1, 0.1, 0.7, 0.8])
+    ax1.set_xticks([])
+    ax1.set_yticks([])
+    Y = sch.linkage(D, method='single')
+    Z = augmented_dendrogram(Y, orientation='top', no_labels=True)
+    fig.savefig(dendrogram_out)
+    notify('** wrote coclust dendrogram to {}', dendrogram_out)
+
+    dendrogram_out = args.prefix + '.dendro.png'
     fig = pylab.figure(figsize=(8,5))
     ax1 = fig.add_axes([0.1, 0.1, 0.7, 0.8])
     ax1.set_xticks([])
